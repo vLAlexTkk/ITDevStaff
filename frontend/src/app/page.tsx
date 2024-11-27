@@ -1,9 +1,4 @@
-import Image from "next/image";
-
+import ArticlePage from "@/app/articles/page";
 export default function Home() {
-  return (
-    <div>
-      <div>Hey</div>
-    </div>
-  );
+  return <ArticlePage />;
 }
