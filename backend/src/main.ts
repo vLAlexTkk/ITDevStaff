@@ -8,6 +8,11 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   app.setBaseViewsDir(join(__dirname, '..', 'views'));
   app.setViewEngine('hbs');
-  await app.listen(5000);
+  app.enableCors({
+    origin: process.env.FRONTEND_URL,
+    methods: 'GET, POST, PUT, DELETE, OPTIONS',
+    credentials: true,
+  });
+  await app.listen(4000);
 }
 bootstrap();
